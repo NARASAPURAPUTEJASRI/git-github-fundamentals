@@ -1,0 +1,159 @@
+Branching - It was a place where we do editing in our code which does not appear in main repository
+            Allows us to create copies of repository to work on different features
+            Separated work space were developers can  work
+
+ What if we want to delete origin variable ?
+ 1)git remote                        - we can see the origin variable as a result
+ 2)git remote -v                     - through these we can see what information is present inside these origin variable and that is where we can push data and pull the data
+ 3)git remote rm origin              - Here rm means remove and with the help of it we can remove origin variable
+ 4)git remote -v                     - Here if we use these command again after the 3) that means we were checking the origin was removed or not
+ 5)git remote add origin repo_url    - These command was used to add the origin variable again
+ 6)git remote -v                     - We use these command always to check teh status of the origin variable
+ 7)git status                        - After merging conflict in the previous day perform these commands from 1) to start onwards
+ 8)git commit -aM "merging conflict" - used to add and commit the changes both at once
+ 9)git rm file_name                  - Here it was used to delete a file from our project folder which was no longer needed(Here the file was deleted permanently)
+ 10)git commit -M "deleting file"    - Here after deleting it we have to perform commit to update that deleted file should delete in git repo also
+ 11)git rm --cached file_name        - Here it was used to hide the file and not to delete the file permanently(We are removing file from the memory of repository not from the folder in vscode)
+
+
+--->Here we created one more file and commited it without adding it so we have to add it through only (git add --a) not with (git commit -am "initial commit")
+--->After adding it we can commit it again
+--->git rm --cached file_name - It makes the file to an untracked zone i.e it was no longer part of our repository/not staged (only a part of folder not part of the local repository)
+Here cached means it was particularly place where we can fetch the data very fastly, it was a memory where data was preserved
+
+--->These file which was untracked and only deleted from repo but not from folder in vscode was going to create a problem, How........?
+If we add anything to the untracked file in our project repo it create a issue in our project so we can ignore that untracked file through..............
+1)Create .gitignore file in the project folder in vscode
+2)On that file we can give the name of that untracked file as (waste.html)
+3)If we click on git status we can only see the .gitignore file as untracked but we cant see the waste.html file directly
+
+---->If we are creating different different files with same extension and now how we are going to ignore all the files that are of the same extension...........?
+We are going to put * and .extension name......
+1)firstly we have to go to the .gitignore file and *.log or if it might be html extension *.html like that
+In these way we can work with multiple files with same extension
+
+--->how can we rename the files......?
+there are two ways ..........
+1)We can perform that through UI
+2)Using mv (move command) command
+what is the difference that made by renaming the file name through ui directly or by using the command......?
+The difference is that if we perform the renaming of file manually then it shows that the file was untracked because the file was not updated using git commands
+Git assumes that we have deleted that file as that file was not present with the previous name like (demo.html --> demo1.html) and it assumes that the renamed one wsa the new file
+So these is where git was got confused, to make sure that gir was not confused we have to work with the git command only to rename the file name
+git mv old_filename new_filename (git mv demo.html demo1.html) - to rename file using git command
+Then after performing these command we can observe a change that if we do that process manually we see U(Untracked) at the file name.
+But now by using the command we can see the R(Renamed) at the end of the file name in green color
+After passing these wew can perform git commit command to save our changes(dont forget to do that if we skip these our changes are not yet saved)
+
+--->If M(modified) present at the end of the file name after changing anything on that file it indicates that the file was just modified but not added or commited yet
+ git checkout demo1.html  - It was used when we want to remove or revoke the modified part from our file
+ Here when we modified single file and not yet add or commit it but we want to remove it, then we can use these git checkout command
+
+----> What if when we modified Multiple files and not yet add or commit Them but we want to remove all of the modified parts from all of those multiple files then ...........?
+Then these is where we can perform the undo operation
+git checkout -f - It wsa used to removed modified part from multiple files which are not added and commited yet
+
+---->If we modify anything in our file and added and commited it then if we perform the git checkout operation on that ............?
+As a result the modified part was not removed as it was added and commited there
+so to resolve these issue as we want to go back to the previous change .............?
+1)git log - to know the commited information
+2)git reset --soft HEAD-1 - It undo the commit but keeps the changes staged(adding area it is going to be right but it is going to undo the commit)
+   it undo the commit section but it is still keeping it into the add zone
+3)git commit -m "reset soft command"  - it saves all our changes
+4)git reset --hard HEAD-1  - It undo the commit section and not keeps the changes staged which mean there wer not present in the adding area also
+
+
+git checkout                    - If we are modified and not yet add or commited but we want to remove the modified thing
+git reset soft/hard             - If we are modified and added and commited but we want to remove the modified thing
+git push --force origin main    - If we are modified and added and commited and also pushed it but again we want to remove the modified thing
+
+what If we are modified and added and commited and also pushed it but again we want to remove the modified thing..........?
+We can resolve the issue by using the git reset hard command and another one more command
+
+----->To undo the last commit and restore the file which have not been pushed yet then we can use the git reset command
+We can perform these reset process in two ways one is hard and the other is soft
+
+----->If the conflict was in one file we can resolve it through manually or using vscode editor.
+If the conflict arises between multiple files also we can resolve them through manually or using vscode editor but we have to be carefully as multiple files are involved there
+
+
+---->stashing :
+
+1)git stash                  -  These command remove the modified version of the file but it is going to keep it safe into the git stash list
+2)git stash list             -  We can visit the git stash list through the command
+3)git stash drop             -  we can delete the stash
+4)git stash list             -  We can now check the git stash list status through the command
+5)git stash drop stash@{0}   -  we can delete the specific stash through the stash id
+6)git stash clear            -  we can delete all the stashes all together
+7)                           -  we can apply last stash then without deleting it then we can simply write
+
+1)we have modified one line in one of our files and before adding or commiting or pushing it we perform (git stash)
+now when ever we go through the git stash command the modified line in that file was not appear at now
+2)As a result of git stash list command, we can see the stash@{0} - think of it like an array with 0 as a stash number
+3)these git stash drop was only for the latest stash, then what if we have multiple stashes...........?
+Then what we can do means......
+git stash drop stash_id (git stash drop stash@{0})
+* Another thing was we can perform message also with git stash
+
+----->git tag :
+It was a mark.
+If we want to remember one commit specifically then we can include a bookmark to that commit which was called as git tag.
+Here git tag was used to mark a specific point(checkpoint,bookmark)
+
+Example :
+we know that some commits are very important for us where it plays a important role in our entire website
+Now without keeping any mark I repeatedly performed hundreds of commits and now i want to remember that specific important commit
+It was very hard for me to remember, so what if i have a bookmark(immediately we are able to find it or indexing it) it  right, so for that we are using tags
+
+*)In repository commit history whenever we want to see some typical/major events into git history,then we can do that with the help of using git tags
+
+There are two types of tags ...........
+1)lightweight
+2)Annotated weight(Giving extra information with git tag)
+
+Usage of these tags........
+1)firstly modify a file with some important message within that
+2)add and commit that file
+3)git tag v1.0        - For the specified modified message which was added and commited lastly was given with a tag v1.0
+4)git log --oneline   - these command gives the #ids and the message rather than the entire information
+5)git tag             - It helps when we want to get information of the tag later on as it give tag name like v1.0 like that
+6)git show v1.0       - Shows the information at point that we performed this tag(simply it can say about when we used this tag)
+7)                    - Using these we can include message along with the tag
+
+4) - by using these we can check the tag for that particular place where we keep
+after 4) if we perform again like we modify anything in that file and then add and commit it
+Then again go through the 4) command we see that the tag was still exist for the place where we assign not for the all,but only at the place where we assign the tag
+
+ Note 1 : we can create more origin variables like origin 1 and origin 2
+ Note 2 : some times in files area in VS code we saw that file U - untracked files,M - modified files in the end of the file name
+ Note 3 : whenever we are working with flags we always have to mention - before them
+ Note 4 : (git log) was a command that shows how many commits that we are performed
+ It contains information like commit number, Author name and mail Id and Date ad time when was the commit performed
+ There in that details of commits we can observe that there is a (HEAD -> main) in green color in one commit information
+ That indicates that the current status of teh git repo was present at there just like the stack follows lifo principle where we can see the last element at the top like that these was happening here
+ Note we can observe that multiple times in our commit information not at only once
+
+
+
+
+
+
+
+
+
+
+ work :
+ git commit -aM "merging conflict" - check that this was -M or -m
+ How we can ignor the untracked files in git repo
+ Then these is where we can perform the undo operation - check these once
+ work on git restore and  git reset and git restore --hard
+ Another thing was we can perform message also with git stash - once check how it works
+ 7)                           -  we can apply last stash then without deleting it then we can simply write - check for these
+ 7)                    - Using these we can include message along with the tag - check for these
+
+
+ 1gb= 1024mb
+ imb=1024kb
+ ex: 237.95mb
+ my data was 1.5gb= 1620mb
+ 1620-237.95 = 1400 to 1300 mb was not used

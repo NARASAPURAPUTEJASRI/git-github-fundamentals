@@ -1,0 +1,97 @@
+Git  :
+Version control system
+It allows developers to track about changes that are happening in the code files
+We can collaborate with multiple developers without overwriting each others code
+We can also return to the previous version whenever we want to do
+(It was a commandline tool and Helps us to track the data)
+
+Github  :
+It was a cloud based platform for Hosting git repositories that we are creating in local environment
+
+git init   - It can convert normal windows repository into local git repository
+git add    - It adds the files and folders that are related to our project into the git local repository
+git commit - It was used to save the files and folders in the local repository
+git push   - It was used to push the origin folder(holds our entire project in single variable) into main folder
+
+Firstly on day 2 we have to learn about  ..............
+
+1)repository cloning and collaboration
+2)git pull
+3)git fork
+
+1)we can clone someones code..........
+By using command (git clone url_of _repository) and coming to collaboration we can do that by watching y-tube video clip
+
+2)we can use git pull in such a way....
+so we are creating a repository locally in github and want to give access to our friend to make changes then we have to make her collaborated
+But here the issue is that when after i push the code and then i give my friend collaboration
+Then the code i updated was not visible to her and if she want to update anything in that file it was rejected to update
+so to make my code updatable in her work environment also then we have to use the command called as (git pull)
+
+3)we can use git fork in such a way.....
+so fork and clone are related
+where clone is going to create repository in our local host but fork was going to create the repository in github environment only
+And in our github environment it always shows that we are forked that repository from someone else repository
+Here there is no chance of duplication of the data
+
+Branch :
+ It is a separate work space where developers can create new codes on which they want to do experiments
+ Then they can merge entire data into main branch only so that we can avoid disturbing current main branch
+
+
+ Now I was new one assigned for the project which was currently working then I have to made changes and updates if needed.
+ so now i dont have to work on the main branch directly, if i do so the whole website would be blocked if i do any mistake
+ so we can create a duplicate branch and work on the project through that duplicate branch and then we can merge that to the main branch after checking the working of our duplicate branch
+ For doing that the following are the commands...........
+ 1)git branch                   -- check the branch (main branch)
+ 2)git branch practice          -- the duplicate branch that we want to work on
+ 3)git branch                   -- to check the status of duplicate branch and how many branches are exist till then
+ 4)git checkout practice        -- here these command allows us to switch to practice branch
+ 5)git branch                   -- now we can check that the curser was switched to duplicate branch or not(We can observe that change through the green color branch was currently switched branch)
+
+
+ Now if add anything in the new duplicate branch then
+ 1)add that line in the duplicate branch
+ 2)git status - shows that something got added on practice/duplicate branch and not commited yet
+ 3)git commit -aM "new line added to duplicate branch" - It saves the new code on the replica branch
+ 4)git status - Here it shows that everything was fine in the replica branch
+ 5)git checkout main - Here curser switch to the main branch
+ 6)git branch - tells that the current branch main branch as an indication of green colour
+
+ now if we want to merge or add our duplicate branch to the main branch then..........
+ 7)git merge practice - It merge or add our duplicate branch to the main branch
+
+ --->To know about merge conflict :
+ now if we add something in main branch and commit it and |switch to practice branch..........
+ now without adding or merging the main branch new data if we also go to duplicate branch and add some code and then commit it |switch to main branch..........
+ we can see that main branch only contains the new data added in the main branch and if we see the practice branch there is only practice branch new data was added
+ now if we use (git merge practice)  for merging both main and practice branches
+ then it shows us three options as if we can go with main branch changes / practice branch changes / both of their changes
+
+ --->If we want to push our practice branch into github repository............
+ git push -U origin practice - these command pushes our practice branch also to our project repository
+
+ --->If we want to delete the practice branch...........
+ git branch -d practice - these command allows us to delete the branch that we want to delete
+
+ --->If we want to remove local repository, we can do that graphically as well as through command also
+ go to that particular local repository path  (rm -rf .git)
+ If we want to work with that local repository then we have to reinitialize it again
+
+
+Note 1 : Here after creating duplicate branch if we add any code to the main branch and commit it permanently then duplicate branch was not changed or effected by the newly added code in the main branch
+Note 2 : Everytime we create/initialize some folder as git repository then always going to create one .git folder as well as a hidden property
+         If we are going to delete tis .git folder from within our repository then that means we are deleting the git repository
+         now as a result that our folder was not going to be a git local repository
+ ---->By performing 5) we can observe that the what every changes that we made on the duplicate branch were not added or present in the main branch
+ It shows that our main branch was very very safe
+ ---->In these 3) It shows that two branches are there where..........
+ one is main one and the other was duplicate or replica of the main one but not the exact main one
+
+work on :
+ collaboration
+ status of new line created(green colour) and number of lines deleted (red colour)
+ work on changing something in duplicate branch and to observe the changes
+ we can use merge command(git merge practice) after (git checkout main) only or we can use (git merge practice) after git checkout practice also
+ does graphical removal of local repository possible or not
+ go to that particular local repository path for removal of the local repository

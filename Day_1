@@ -1,0 +1,159 @@
+The store that describes about why Git introduced earlier
+
+Once upon a time there were three persons from a company are invited to work on building an website called as Bharat.com
+so they have to work on that website with the help of using a centralized server
+If they want to upgrade any pages of the website they need to  came to the central server for the updating process
+
+So there are lot many disadvantages on going through these process
+1)The first problem was that,these persons cannot work independently
+2)They cannot have code on there Laptops
+3)lack of awareness on the updation of project(like one person cannot know which person changed the code,update the code and some of the time of updations of the code)
+
+now lets discuss about version control system
+
+These version control system helps to overcome the third disadvantage
+By using these version control system ..............
+
+1) ..............people can work Independently........................
+Here that means they were allowed to work on there personal laptop and upload the updated version of their code on the website if need
+And they can work on their flexible time also  which makes easy for the developer to work on specified project
+
+2)..............Provides Better status of the Project...................
+Here the developer cannot approach the co-team members for the status of the project
+Because these Version control system Keep The Track or record of each and every task that anyone going to change or update or create a new different code
+
+Example:
+
+We are aware of the new version of the gmail and old version of the gmail also
+So very rarely sometimes when the particular message was not opened due to network issue as the new version the mail was very heavy due to the vertical CSS
+So it ask us to use the older version to open that message as the older version was light in weight due to less CSS and Ready to opened in low internet situations also
+That means they are stored there older version of Gmail,Which takes the user to back to the older version and also allowed the user to use that in some situations
+
+Another type of generalised example was that if we created any website based on the current needs but later if the customer was not satisfied with that website
+Then what we should do we have to consider the required needs of the customers and started working on the development of the new website
+But to overcome these issue we can use these version control system which allows as to update the older version of teh website with the new version
+And it was also allows as to use the preferred version based on our requirement which means we can also switch to the other version from the existed version
+
+So these kind of information about the updates and etc are stored with the help of the version control system
+These version control system easily keep track of each and every thing that developer what to upgrade
+We can also have the track of the entire file system and folder structure
+These having information like............
+ who change the code ?
+ why he changed the code?
+ At which part he changed the code?
+
+ Different types of version control systems :
+
+ Distributed Version control system..........
+ 1)Developer have local copy of entire project
+ 2)Offline work possible
+ 3)Changes in project can be merged later
+
+ Centralized Version control system............
+ 1)Stores all project files in single central repository on a server
+ 2)Need developers to work on "check out" files
+ 3)Need developers to work on "Check in" files for updating the central repository
+
+ GIT hub,GIT Lab, Mercurial ,Bit Bucket,Azure     - Distributed Version control system
+ Apache subversion,cvs(concurrent version system) - Centralized Version control system
+
+ Git hub    --> Online platform or cloud repository
+ Git        --> Perform commands
+ Repository --> It wsa a folder/directory where we can keep single/same type of data
+
+
+
+ To work with git hub we need download the git Scm  and we have to create an github account also
+
+ Git commands.....................
+
+ git init                         -  It means that we are going to initialize(making it ready) these entire folder as a git Repository/local Repository
+ git statues                      -  It tells about the status as the number of files commited
+ git add --a                      -  It was used to add all the files that we want to work on
+ git commit -m "initial commit"   -  It was used to save the added files with message called as initial commit(her "-m" indicates message)
+ git branch -M main               -  Here main is a folder for github repository inside which our code needs to be visible(here these command turns our master folder - main folder)
+ git remote add origin github_url -  Here git - git commands | remote - To access something online | add - we can add or store the information of entire link/repository into a variable called as origin(so if next time we want to perform any operation we cannot use the entire link but we can simply use the variable name)
+ git push -U origin main          -  Here push means uploading the entire information into main folder of the origin variable
+
+ git pull                         -  These command was going to pull the changes that what we have done on the entire (It tells/shows us about the changes that are made newly)
+
+ last three commands are used to upload the latest Information(changes in the code) into these github website and share it with others with the help of the link
+ Here we have to perform these commands at once only we need not perform them again and again
+
+ 1)we have to initialize the repository
+ 2)we have to check the status
+ 3)we have to add the files to that repository
+ 4)we have to check the status
+ 5)we have to commit them(we have to save them permanently)  - Its like ctrl+s
+ 6)we have to check the status
+ 7)we have to push or upload them to that repository
+
+ here after 5)th step we check the status for knowing about the untracked files or added files
+ If the files are not saved then we need to add them with the help of command...........(git add  --a)
+ Then to check that files are added or not we have to go through the command called as ..........(git status)
+ so after adding the remaining files we again have to commit them(we have to save them) with the help of command.......... (git commit -m "secondary commit")
+ then as a result we can see that new files are added and the current status of the repository
+
+  sometimes we have to add a new file in one of the subfolders of the project repository
+  so at that time if we use (git add --a) command and (git commit -m "initial commit" )command and check the status of the folder where new file was added
+  Then we can observe that the file in that current folder was not saved so to overcome these issue we use (git add . ) which add the files to the current working directory.
+  we have to enter the command(cd ..) it takes us back to the folder that previously existed
+  Then we can perform commit through(git commit -m "After adding some files through folder ")
+  after that we can again check our entire working of the git repository with command(git status)
+
+  Important : SO anytime we add new lines in the files,then we have to go through the commands called as..........
+  1)git add -a
+  2)git commit
+  3)git status
+  so these three commands were not enough because the changes that we made are only changed in the vscode not in the github so to make our github also be updated we have to use these command.........
+  4)git push
+
+  Secret command : It was used to avoid the usage of (git add -a and git commit) commands
+  -->These command acts as shortcut where if our file was added previously
+  1)git commit -am "usage of shortcut command"
+  Here "am" means add and message
+  2)git status - to check weather the changes are updated or not
+
+  Note 1 : If we were facing any error, we can use the commands..........
+  1)git config --global user.name "our_name"
+  2)git config --global user.mail "our_mail_id"
+
+  Note 2 : So if anyone wants to clone our repository or we want to clone others repository the command was...........
+  1)git clone repository_link
+  Here clone means creating copy of that entire repository
+
+  Note 3 : If we want to add one file then the command was ......... (git add --filename)
+
+  Note 4 : We dont have to memorize the commands but need to understand the working of that command
+
+  overview on git commands :
+  1)git init                   - Initializing the folder as git local repository
+  2)git add --a                - Include files into git local repository to keep track
+  3)git commit -M "message"    - Save information of files into git local repository
+  4)git status                 - To check the status of any pending files
+  5)git branch -m main         - Here branch is a folder where our master folder - main folder
+  6)git remote add origin link - Here our link was stored in a variable called as origin so that everyone can use it remotely
+  7)git push -U origin main    - Here we are pushing our information in origin into the main folder 
+  8)git push                   - Rest of the time if we want to push we can use these command(to upload everytime in origin inside main)
+  9)git clone https://         - To make our teammates to access our repository  
+  These are the three commands(5,6,7) that we only need to perform once in the starting only
+
+
+Generalization..............:
+Git commands
+git init
+git add .
+git commit -m "Initial commit"
+git repo url
+git push -u origin master
+
+Error in repo then
+git remote -v
+git remote remove origin and continue the process
+  
+
+
+
+
+
+
